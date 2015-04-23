@@ -14,7 +14,7 @@ PageCodes.createCode('hello', ['h', 'e', 'l', 'l', 'o'], function () {
     alert('Hello');
 });
 ```
-and add the keyboard event
+and add the ```keydown``` event
 ```javascript
 window.addEventListener('keydown', function (key) {
     PageCodes.run(key.keyCode);
