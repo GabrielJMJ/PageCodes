@@ -1,0 +1,26 @@
+{
+  "name": "pagecode",
+  "version": "1.0.0",
+  "homepage": "https://github.com/GabrielJMJ/PageCodes",
+  "authors": [
+    "Gabriel Jacinto <gamjj74@hotmail.com>"
+  ],
+  "description": "Create keyboard codes for your page",
+  "main": "src/pagecodes.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "keycode",
+    "keyword",
+    "code"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
