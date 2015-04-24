@@ -25,7 +25,7 @@ Each 3 seconds, if the user does not digit nothing, the pressed keys is cleared.
 PageCodes.setIntervalTime(5000); // 5 seconds
 ```
 
-## - [Live example](http://jsfiddle.net/mqxrufp2/1/)
+## - [Live example](http://jsfiddle.net/GabrielJMJ/9mgm4ofg/)
 ## Key codes
 *You can ignore the code section.*
 
