@@ -105,22 +105,25 @@ PageCodes.prototype.strToKeyCode = function (str) {
  * @parmm integer key 
  */
 PageCodes.prototype.run = function (key) {
-    var date = new Date();
-    var sec = date.getTime();
-    
-    if (this.time <= (sec - this.intervalTime)) {
-        this.pressed = [];
-    }
-
-    this.time = sec;
-    this.pressed.push(key);
-
-    for (code in this.codes) {
-        console.log(this.pressed);
-        if (this.pressed.equals(this.codes[code].getKeys())) {
-            var callback = this.codes[code].getCallback();
+    if (getCurrentElement() !== '[object HTMLInputElement]'
+        && getCurrentElement()  !== '[object HTMLTextAreaElement]'
+    ) {
+        var date = new Date();
+        var sec = date.getTime();
+        
+        if (this.time <= (sec - this.intervalTime)) {
             this.pressed = [];
-            callback(this.codes[code].getKeys());
+        }
+    
+        this.time = sec;
+        this.pressed.push(key);
+    
+        for (code in this.codes) {
+            if (this.pressed.equals(this.codes[code].getKeys())) {
+                var callback = this.codes[code].getCallback();
+                this.pressed = [];
+                callback(this.codes[code].getKeys());
+            }
         }
     }
 }
@@ -149,4 +152,8 @@ Array.prototype.equals = function (array) {
         }
     }
     return true;
+}
+
+function getCurrentElement() {
+    return document.activeElement.toString();
 }
