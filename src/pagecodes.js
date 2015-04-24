@@ -56,6 +56,11 @@ var PageCodes = function () {
     this.intervalTime = 3000;
 }
 
+/**
+ * Sets the interval for clear the code history
+ *
+ * @return PageCodes
+ */
 PageCodes.prototype.setIntervalTime = function (time) {
     this.intervalTime = time;
     return this;
@@ -73,8 +78,22 @@ PageCodes.prototype.createCode = function (name, code, callback) {
         code[key] = this.strToKeyCode(code[key]);
     }
     
-    this.codes.push(new Code(code, callback));
+    this.codes[name] = new Code(code, callback);
     return this;
+}
+
+/**
+ * Executes a code callback
+ *
+ * @return mixed
+ */
+PageCodes.prototype.executeCode = function (name) {
+    if (typeof this.codes[name] !== 'undefined') {
+        var callback = this.codes[name].getCallback();
+        return callback([]);
+    }
+    
+    return false;
 }
 
 /**
@@ -122,7 +141,7 @@ PageCodes.prototype.run = function (key) {
             if (this.pressed.equals(this.codes[code].getKeys())) {
                 var callback = this.codes[code].getCallback();
                 this.pressed = [];
-                callback(this.codes[code].getKeys());
+                return callback(this.codes[code].getKeys());
             }
         }
     }

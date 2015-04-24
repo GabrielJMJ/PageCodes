@@ -20,11 +20,14 @@ window.addEventListener('keydown', function (key) {
     PageCodes.run(key.keyCode);
 });
 ```
-Each 3 seconds, if the user does not digit nothing, the pressed keys is cleared. If you wanna to change that, use the function ```setIntervalTime``` with the milliseconds:
+Each 3 seconds, if the user does not digit nothing, the pressed keys is cleared. If you wanna to change that, use the function ```setIntervalTime``` with the milliseconds
 ```javascript
 PageCodes.setIntervalTime(5000); // 5 seconds
 ```
-
+You can also execute a callback of a code
+```javascript
+PageCodes.executeCode('hello');
+```
 ## - [Live example](http://jsfiddle.net/GabrielJMJ/9mgm4ofg/)
 ## Key codes
 *You can ignore the code section.*
