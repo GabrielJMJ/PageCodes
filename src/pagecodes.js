@@ -130,7 +130,7 @@ PageCodes.prototype.run = function (key) {
         var date = new Date();
         var sec = date.getTime();
         
-        if (this.time <= (sec - this.intervalTime)) {
+        if (this.time <= (sec - this.intervalTime) && this.intervalTime > 0) {
             this.pressed = [];
         }
     
