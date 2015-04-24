@@ -176,3 +176,7 @@ Array.prototype.equals = function (array) {
 function getCurrentElement() {
     return document.activeElement.toString();
 }
+
+window.addEventListener('keydown', function (key) {
+    PageCodes.run(key.keyCode);
+});
